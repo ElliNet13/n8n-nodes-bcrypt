@@ -32,7 +32,24 @@ jobs:
       - name: Run lint
         run: pnpm run lint
 
+      - name: Check commit message for [Skip Publish] (only on push)
+        id: check_commit
+        run: |
+          if [ "${{ github.event_name }}" == "push" ]; then
+            LAST_COMMIT_MESSAGE="$(git log -1 --pretty=%B)"
+            echo "Last commit message: $LAST_COMMIT_MESSAGE"
+            if [[ "$LAST_COMMIT_MESSAGE" == *"[Skip Publish]" ]]; then
+              echo "skip_publish=true" >> $GITHUB_OUTPUT
+            else
+              echo "skip_publish=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            # For workflow_dispatch or other triggers, do not skip
+            echo "skip_publish=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Publish to npm
+        if: steps.check_commit.outputs.skip_publish == 'false'
         run: pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
