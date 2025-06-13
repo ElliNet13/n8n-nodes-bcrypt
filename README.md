@@ -17,7 +17,8 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-**Hash**: Hash any text with bcrypt
+**Hash**: Hash any password with bcrypt
+**Compare**: Check if a plain text password matches a hash
 
 ## Compatibility
 
