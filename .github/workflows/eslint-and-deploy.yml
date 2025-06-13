@@ -27,8 +27,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run ESLint
-        run: pnpm eslint .
+      - name: Run lint
+        run: pnpm run lint
 
       - name: Publish to npm
         run: pnpm publish --no-git-checks
