@@ -3,7 +3,7 @@ name: Lint and Publish
 on:
   push:
     branches:
-      - master # Change to your default branch if different (e.g., 'master')
+      - master
 
 jobs:
   lint-and-publish:
@@ -16,13 +16,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Change if you use a different Node.js version
+          node-version: '20'
           registry-url: 'https://registry.npmjs.org/'
 
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 9 # Replace with your pnpm version if needed
+          version: 9
 
       - name: Install dependencies
         run: pnpm install
