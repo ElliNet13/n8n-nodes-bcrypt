@@ -1,15 +1,15 @@
 {
   "name": "n8n-nodes-bcrypt",
   "version": "0.1.0",
-  "description": "",
+  "description": "Use bcrypt hashing in your n8n workflows",
   "keywords": [
     "n8n-community-node-package"
   ],
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "ElliNet13",
+    "email": "ellinet13@ellinet13.com"
   },
   "repository": {
     "type": "git",
