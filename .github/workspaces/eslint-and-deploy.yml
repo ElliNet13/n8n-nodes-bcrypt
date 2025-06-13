@@ -3,7 +3,7 @@ name: Lint and Publish
 on:
   push:
     branches:
-      - main # Change to your default branch if different (e.g., 'master')
+      - master # Change to your default branch if different (e.g., 'master')
 
 jobs:
   lint-and-publish:
